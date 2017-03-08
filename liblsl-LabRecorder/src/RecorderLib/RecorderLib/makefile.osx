@@ -1,0 +1,28 @@
+CPP=g++
+CC=gcc
+
+LSL_PATH=../../pylsl
+
+CXXFLAGS = -fPIC
+INCLUDE = -I$(shell brew --prefix)/include/boost -I../../../../../../LSL/liblsl/include/ $(shell python-config --include) -I./
+LIBPATH = -L../../../../../LSL/liblsl/bin
+LIBS = $(shell python-config --libs) -lboost_system -lboost_thread-mt -lboost_iostreams -llsl64 #-lpthread -lc -llibstdc++
+
+SRCS = RecorderLib.cpp RecorderLib_wrap.c
+OBJS = $(SRCS:.cpp=.o) $(SRCS:.c=.o)
+
+.PHONY: clean RecorderLib64.dylib
+
+all: RecorderLib64.dylib
+
+.cpp.o:
+	$(CPP) $(CXXFLAGS) $(INCLUDE) -c -o $@ $^
+
+.c.o:
+	$(CC) $(CXXFLAGS) $(INCLUDE) -c -o $@ $^
+
+RecorderLib64.dylib: $(OBJS)
+	$(CPP) -shared RecorderLib.o RecorderLib_wrap.o -o RecorderLib64.dylib $(LIBPATH) $(LIBS)
+
+clean:
+	rm -f *.dylib *.o *.cxx

@@ -1,0 +1,28 @@
+CPP=g++
+CC=gcc
+
+TARGET=RecorderLib64.dylib
+
+CXXFLAGS = -fno-common -fPIC -Wall
+INCLUDE = -I../ -I../../../../../LSL/liblsl/include/ -I/System/Library/Frameworks/Python.framework/Headers/ -I/usr/local/include/boost/thread #-I../../../../../LSL/liblsl/external/lslboost/ -I../../../../../LSL/liblsl/external $(shell python-config --include) -I./
+LIBPATH = -L./ #-L../../../../../LSL/liblsl/bin 
+LIBS = -lboost_system-mt -lboost_thread-mt -lboost_iostreams-mt -llsl64 $(shell python-config --libs)#-framework python
+DYPATH = -Wl,-rpath ../../../../../LSL/liblsl/bin -Wl,-rpath ./ #-Wl,-rpath ../../../LSL/liblsl/bin
+
+SRCS = RecorderLib.cpp RecorderLib_wrap.c
+OBJS = $(SRCS:.cpp=.o) $(SRCS:.c=.o)
+
+.PHONY: clean $(TARGET)
+
+all: $(TARGET)
+
+.cpp.o:
+	$(CPP) $(CXXFLAGS) $(LIBPATH) $(LIBS) $(INCLUDE) -c -o $@ $^ 
+
+.c.o:
+	$(CC) $(CXXFLAGS) $(LIBPATH) $(LIBS)$(INCLUDE) -c -o $@ $^  
+
+$(TARGET): $(OBJS)
+	$(CC) -shared -undefined suppress -flat_namespace RecorderLib.o RecorderLib_wrap.o  -o RecorderLib64.dylib $(LIBPATH) $(LIBS)
+clean:
+	rm -f $(TARGET) *.o
