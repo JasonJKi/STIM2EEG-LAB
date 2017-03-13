@@ -1,4 +1,4 @@
-About STIM2EEGLAB
+## About STIM2EEGLAB
 Stimulus Player (Newton) – 
 
 ### 1)	START MATLAB
