@@ -1,11 +1,11 @@
 About STIM2EEGLAB
-Stimulus Player (Newton) ñ 
+Stimulus Player (Newton) ‚Äì 
 1)	START MATLAB
 a.	Right Click MATLAB ICON on the Desktop -> go to properties  -> 
-b.	Edit line under Target: [ìC:\Program Files\MATLAB\R2016b\bin\matlab.exeî]
+b.	Edit line under Target: [‚ÄúC:\Program Files\MATLAB\R2016b\bin\matlab.exe‚Äù]
 to 
 '''
-ìC:\Program Files\MATLAB\R2016b\bin\matlab.exeî -R ì-nojvmî
+‚ÄúC:\Program Files\MATLAB\R2016b\bin\matlab.exe‚Äù -R ‚Äú-nojvm‚Äù
 '''
 and Press OK to close properties menu
 (this will disable JAVA virtual machine which conflicts with Psychtoolbox for 64 bit MATLAB)
@@ -13,30 +13,30 @@ c.	START MATLAB (this will start MATLAB cmd window)
 2)	Switch TO STIM2EEGLAB directory
 -	In the cmd window cd into the StimulusPlayer script by typing the following command.
 '''
-cd(ëC:\Users\Jason\STIM2EEGLAB\StimulusPlayerí)
+cd(‚ÄòC:\Users\Jason\STIM2EEGLAB\StimulusPlayer‚Äô)
 '''
 3)	Start VideoPlayer 
--	Start your stimulus by typing in VideoPlayer(ìstimPath\StimNameî) in the command line.
+-	Start your stimulus by typing in VideoPlayer(‚ÄústimPath\StimName‚Äù) in the command line.
 -	Example:
 '''
-VideoPlayer(ëC:\Users\Jason\STIM2EEGLAB\Stimulus\ManOfSteel.mp4í)
+VideoPlayer(‚ÄòC:\Users\Jason\STIM2EEGLAB\Stimulus\ManOfSteel.mp4‚Äô)
 '''
 -	Once this command is typed in it will ask you to activate the lab streaming layer (lsl) in the recording machine.
 4)	Now go to setup the EEG Recorder by following directions under EEG Recording (EEG).
 
 5)	When all steps under EEG Recording (EEG) is complete press enter to start your stimulus video.
 
-6)	Psychtoolbox will close automatically when itís finished.
+6)	Psychtoolbox will close automatically when it‚Äôs finished.
 
 7)	Go to the EEG Recording Machine to stop Recording if you have finished the experiment.
 
-EEG Recording (EEG) ñ
+EEG Recording (EEG) ‚Äì
 0)	open folder C:\Users\SKlab\Desktop\STIM2EEGLAB
 
 1)	START Brain Amp Series to activate lab streaming layer interface with the brain product eeg system. 
 a.	 open folder C:\Users\SKlab\Desktop\STIM2EEGLAB\BrainAmpSeries
 b.	 double click to start BrainAmpSeries.exe
-c.	leave the default setting and click link button to activate the lab streaming layer for the eeg (If the usb cable to eeg is not connected to the EEG machine then itíll throw error).
+c.	leave the default setting and click link button to activate the lab streaming layer for the eeg (If the usb cable to eeg is not connected to the EEG machine then it‚Äôll throw error).
 
 2)	START LAB Recorder
 This is where all STIM2EEGLAB software for recording lab streaming layer and start 
