@@ -1,5 +1,7 @@
 ## About STIM2EEGLAB
-Stimulus Player (Newton) – 
+#### by Jason Ki
+
+##### Stimulus Player (Newton) – 
 
 ### 1)	START MATLAB
 a.	Right Click MATLAB ICON on the Desktop -> go to properties  -> 
@@ -32,7 +34,8 @@ VideoPlayer(‘C:\Users\Jason\STIM2EEGLAB\Stimulus\ManOfSteel.mp4’)
 
 ### 7)	Go to the EEG Recording Machine to stop Recording if you have finished the experiment.
 
-EEG Recording (EEG) –
+##### EEG Recording (EEG) –
+
 ### 0)	open folder C:\Users\SKlab\Desktop\STIM2EEGLAB
 
 ### 1)	START Brain Amp Series to activate lab streaming layer interface with the brain product eeg system. 
