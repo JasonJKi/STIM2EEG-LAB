@@ -3,17 +3,24 @@ Stimulus Player (Newton) –
 1)	START MATLAB
 a.	Right Click MATLAB ICON on the Desktop -> go to properties  -> 
 b.	Edit line under Target: [“C:\Program Files\MATLAB\R2016b\bin\matlab.exe”]
-to [“C:\Program Files\MATLAB\R2016b\bin\matlab.exe” -R “-nojvm”]
+to 
+'''
+“C:\Program Files\MATLAB\R2016b\bin\matlab.exe” -R “-nojvm”
+'''
 and Press OK to close properties menu
 (this will disable JAVA virtual machine which conflicts with Psychtoolbox for 64 bit MATLAB)
 c.	START MATLAB (this will start MATLAB cmd window)
 2)	Switch TO STIM2EEGLAB directory
 -	In the cmd window cd into the StimulusPlayer script by typing the following command.
->> cd(‘C:\Users\Jason\STIM2EEGLAB\StimulusPlayer’)
+'''
+cd(‘C:\Users\Jason\STIM2EEGLAB\StimulusPlayer’)
+'''
 3)	Start VideoPlayer 
 -	Start your stimulus by typing in VideoPlayer(“stimPath\StimName”) in the command line.
 -	Example:
->> VideoPlayer(‘C:\Users\Jason\STIM2EEGLAB\Stimulus\ManOfSteel.mp4’)
+'''
+VideoPlayer(‘C:\Users\Jason\STIM2EEGLAB\Stimulus\ManOfSteel.mp4’)
+'''
 -	Once this command is typed in it will ask you to activate the lab streaming layer (lsl) in the recording machine.
 4)	Now go to setup the EEG Recorder by following directions under EEG Recording (EEG).
 
