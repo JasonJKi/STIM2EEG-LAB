@@ -4,8 +4,13 @@
 ##### Stimulus Player (Newton) – 
 
 ###### 1)	START MATLAB
+--------------------------------------------------------------------
+(for MATLAB 64bit version only)
 a.	Right Click MATLAB ICON on the Desktop -> go to properties  -> 
-b.	Edit line under Target: [“C:\Program Files\MATLAB\R2016b\bin\matlab.exe”]
+b.	Edit line under Target:
+```
+“C:\Program Files\MATLAB\R2016b\bin\matlab.exe”
+```
 to 
 ```
 “C:\Program Files\MATLAB\R2016b\bin\matlab.exe” -R “-nojvm”
@@ -13,6 +18,10 @@ to
 and Press OK to close properties menu
 (this will disable JAVA virtual machine which conflicts with Psychtoolbox for 64 bit MATLAB)
 c.	START MATLAB (this will start MATLAB cmd window)
+
+--------------------------------------------------------------------
+
+a.	START MATLAB (this will start MATLAB cmd window)
 ###### 2)	Switch TO STIM2EEGLAB directory
 -	In the cmd window cd into the StimulusPlayer script by typing the following command.
 ```
