@@ -6,7 +6,7 @@
 ###### 1)	START MATLAB
 --------------------------------------------------------------------
 
-####### **for MATLAB 64bit version only otherwise start matlab regularly
+###### **for MATLAB 64bit version only otherwise start matlab regularly
 
 a.	Right Click MATLAB ICON on the Desktop -> go to properties  -> 
 b.	Edit line under Target:
