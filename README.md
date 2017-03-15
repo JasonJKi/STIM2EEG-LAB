@@ -5,7 +5,8 @@
 
 ###### 1)	START MATLAB
 --------------------------------------------------------------------
-(for MATLAB 64bit version only)
+#######(for MATLAB 64bit version only)
+
 a.	Right Click MATLAB ICON on the Desktop -> go to properties  -> 
 b.	Edit line under Target:
 ```
