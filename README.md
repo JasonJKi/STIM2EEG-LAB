@@ -28,11 +28,11 @@ a.	START MATLAB (this will start MATLAB cmd window)
 cd(‘C:\Users\Jason\STIM2EEGLAB\StimulusPlayer’)
 ```
 
-###### 3)	Start VideoPlayer 
+###### 3)	Start StimulusPlayer 
 -	Start your stimulus by typing in VideoPlayer(“stimPath\StimName”) in the command line.
 -	Example:
 ```
-VideoPlayer(‘C:\Users\Jason\STIM2EEGLAB\Stimulus\ManOfSteel.mp4’)
+StimulusPlayer(‘C:\Users\Jason\STIM2EEGLAB\Stimulus\ManOfSteel.mp4’)
 ```
 -	Once this command is typed in it will ask you to activate the lab streaming layer (lsl) in the recording machine.
 ###### 4)	Now go to setup the EEG Recorder by following directions under EEG Recording (EEG).
