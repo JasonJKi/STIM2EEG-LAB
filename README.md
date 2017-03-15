@@ -6,7 +6,7 @@
 ###### 1)	START MATLAB
 --------------------------------------------------------------------
 
-####### (for MATLAB 64bit version only)
+####### **for MATLAB 64bit version only otherwise start matlab regularly
 
 a.	Right Click MATLAB ICON on the Desktop -> go to properties  -> 
 b.	Edit line under Target:
@@ -23,7 +23,6 @@ c.	START MATLAB (this will start MATLAB cmd window)
 
 --------------------------------------------------------------------
 
-a.	START MATLAB 
 ###### 2)	Switch TO STIM2EEGLAB directory
 -	In the cmd window cd into the StimulusPlayer script by typing the following command.
 ```
