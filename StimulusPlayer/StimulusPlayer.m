@@ -1,4 +1,4 @@
-function VideoPlayer(moviename, backgroundMaskOut, tolerance, pixelFormat, maxThreads)
+function StimulusPlayer(moviename, backgroundMaskOut, tolerance, pixelFormat, maxThreads)
 % PlayMoviesDemo(moviename [, backgroundMaskOut][, tolerance][, pixelFormat=4][, maxThreads=-1])
 %
 % This demo accepts a pattern for a valid moviename, e.g.,
