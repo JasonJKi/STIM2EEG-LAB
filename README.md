@@ -1,5 +1,5 @@
 # STIM2EEG-LAB <h1>
-#### by Jason Ki [www.jasonki.com](https://www.jasonki.com)
+#### by Jason Ki [(www.jasonki.com)](https://www.jasonki.com)
 #### PhD Student 
 #### Biomedical Engineering
 #### City College of New York at the City University of New York
