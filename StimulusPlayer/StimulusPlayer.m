@@ -121,6 +121,9 @@ try
     % Choose 16 pixel text size:
     Screen('TextSize', win, 16);
     Screen('Preference', 'TextAlphaBlending', 1)
+   
+    pause
+    
     % Endless loop, runs until ESC key pressed:
     while (abortit<2)
        
@@ -128,7 +131,7 @@ try
         fprintf('ITER=%i::', iteration);
         
         % Show title while movie is loading/prerolling:
-                disp(['displaying movie name ' moviename])
+        disp(['displaying movie name ' moviename])
 
         DrawFormattedText(win, ['Loading ...\n' moviename], 'center', 'center', 0, 40);
         Screen('Flip', win);
