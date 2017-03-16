@@ -6,4 +6,4 @@
 #### 
 
 
-This is a stimulus capture and display developed for EEG data collection using labstreaming layer 
+The **stimulus to eeg lab** (STIM2EEG-LAB) is a stimulus capture and display project developed for EEG data collection using labstreaming layer and psychtoolbox 
