@@ -41,19 +41,6 @@ function StimulusPlayer(moviename, backgroundMaskOut, tolerance, pixelFormat, ma
 % zero asks to auto-select an optimum number of threads for a given
 % computer. By default, a codec specific default number is used, typically
 % one thread.
-%
-
-% History:
-% 10/30/05  mk  Wrote it.
-% 07/17/11  mk  Add support for background pixel color removal via shaders.
-%               Code cleanup, dead code removal.
-% 04/14/12  mk  Code cleanup, refinements for network video streams.
-%               Add useful videos to playlist which are less pathetic than
-%               the fairy-tales of the iPhone company.
-% 06/30/12  mk  Add 'pixelFormat' parameter, disable pathetic Apple PR
-%               videos. Enable cool videos on OSX-64Bit as well.
-% 08/03/12  mk  Add 'maxThreads' parameter.
-% 06/17/13  mk  Add new (c)ool movies, remove Apple PRopaganda videos, cleanup.
 
 % Initialize with unified keynames and normalized colorspace:
 disp('Loading library...');
