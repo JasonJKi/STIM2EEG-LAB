@@ -69,8 +69,8 @@ eegBYD2=eegPreprocessed{3};
 eegDDA1=eegPreprocessed{2};
 eegDDA2=eegPreprocessed{4};
 
-[dataOut,W,A1,Rxx,Ryy,Rxy,dGen,h] = rcaRun(cat(3,eegBYD1,eegBYD2),15,5);
-[dataOut,W,A2,Rxx,Ryy,Rxy,dGen,h] = rcaRun(cat(3,eegDDA1,eegDDA2),15,5);
+[dataOut,W,A1,Rxx,Ryy,Rxy,dGen,h] = rcaRun(cat(3,eegBYD1,eegBYD2),6,5);
+[dataOut,W,A2,Rxx,Ryy,Rxy,dGen,h] = rcaRun(cat(3,eegDDA1,eegDDA2),6,5);
 
 figure(1)
 clf
@@ -79,8 +79,9 @@ for i=1:5;
     subplot(1,5,i)
     title(['C' num2str(i)])
     topoplot_jk(A1(:,i), 'JBhead96_sym.loc','electrodes','off','numcontour',0);
-    caxis([-.5 .5])
+    caxis
     colorbar
+    colormap jet
 
 end
 saveas(figure(1),'BYD_Components.jpg')
@@ -91,13 +92,14 @@ for i=1:5;
     subplot(1,5,i)
     title(['C' num2str(i)])
     topoplot_jk(A2(:,i), 'JBhead96_sym.loc','electrodes','off','numcontour',0);
-    caxis([-.5 .5])
+    caxis
     colorbar
+    colormap jet
 end
 saveas(figure(2),'DDA_Components.jpg')
 
 [dataOut,W,A3,Rxx,Ryy,Rxy,dGen,h] = rcaRun(...
-    {cat(3,eegBYD1,eegBYD2),cat(3,eegDDA1,eegDDA2)},15,5);
+    {cat(3,eegBYD1,eegBYD2),cat(3,eegDDA1,eegDDA2)},6,5);
 
 figure(3)
 clf
@@ -106,7 +108,7 @@ for i=1:5;
     subplot(1,5,i)
     title(['C' num2str(i)])
     topoplot_jk(A3(:,i), 'JBhead96_sym.loc','electrodes','off','numcontour',0);
-    caxis([min(A3(:,i)) max(A3(:,i))])
+    caxis
     colormap jet
     colorbar
 end
