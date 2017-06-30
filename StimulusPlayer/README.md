@@ -1,5 +1,5 @@
 
-##### Stimulus Player (Newton) – 
+##### Stimulus Player Machine – 
 
 ###### 1)	START MATLAB
 --------------------------------------------------------------------
@@ -42,7 +42,7 @@ StimulusPlayer(‘C:\Users\Jason\STIM2EEGLAB\Stimulus\ManOfSteel.mp4’)
 
 ###### 7)	Go to the EEG Recording Machine to stop Recording if you have finished the experiment.
 
-##### EEG Recording (EEG) –
+##### EEG Recording Machine –
 
 ###### 0)	open folder C:\Users\SKlab\Desktop\STIM2EEGLAB
 

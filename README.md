@@ -3,7 +3,7 @@
 ##### PhD Student, Biomedical Engineering, City College of New York at the City University of New York <h1>
 
 # Summary
-The **stimulus to eeg lab** (STIM2EEG-LAB) is a stimulus capture and display system developed for EEG data collection using [labstreaming layer(lsl)](https://github.com/sccn/labstreaminglayer) and [psychtoolbox](http://psychtoolbox.org/)
+The **stimulus to eeg lab** (STIM2EEG-LAB) is a stimulus capture and display system developed for capturing timed locked eeg data concurrent to stimulus rendering using [labstreaming layer(lsl)](https://github.com/sccn/labstreaminglayer) and [psychtoolbox](http://psychtoolbox.org/)
 
 The STIM2EEG-LAB consists of:
 
