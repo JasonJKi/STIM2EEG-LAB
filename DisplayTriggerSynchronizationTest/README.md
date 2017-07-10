@@ -13,13 +13,21 @@ OBS is an open source software written in C/C++. OBS allows real time capturing,
 
 #### Implementing LSL Protocol to OBS
 1. Media Displaying
-There are 4 key components in for displaying Media onto the screen. Media Decoding, Video Rendering, Texture Rendering and Drawing.  
-These processes run in parallel within it's own threads. The execution of these functions is looped controlled based on the media frame rate. LSL stream is placed in the execution sequence just before when 2d sprite of the frame is drawn to the monitor. For every frame displayed, lsl outputs a stream packet containing coinciding time and number of the current frame.
+There are two central processes in playing video Media, media decoding, and video rendering(texture Rendering).  
+These processes run in parallel within it's own threads and there are numerous subprocesses controls the entire video display.  every frame displayed, lsl outputs a stream packet containing coinciding time and number of the current frame.
+
+- Media Decoding
+- Video Rendering
 
 2. Screen Capturing
 (to be continued)
 
-#### Testing the Precision of Displayed Stimulus and its corresponding LSL Trigger
-In order to ensure temporal precision of the displayed stimulus and its corresponding LSL marker, we need a way of measuring the execution time difference between the physical rendering of each frame (to the display screen) and its corresponding LSL marker. To test this, we played a 3 minute mpeg4 video of 30hz which output a white flash every 30 frames using OBS video player and recorded the flash event occuring on the display monitor using a photoresistor. The photoresistor is activated on exposure to light once surpassed a set threshold ontrolled by [cedrus](https://cedrus.com/stimtracker/). Both the incoming flash event from the monitor via photoresistor and the corresponding LSL frame marker from OBS was captured using the [Lab Recorder](https://github.com/sccn/labstreaminglayer/wiki/LabRecorder.wiki) (LSL acquisition software). 
+#### Testing the Precision of Displayed Stimulus and its Corresponding LSL Trigger
+In order to ensure temporal precision of the displayed stimulus and its corresponding LSL marker, we need a way of measuring the execution time difference between the physical rendering of each frame (to the display screen) and its corresponding LSL marker. To test this, we played a 3 minute mpeg4 video of 30hz which output a white flash every 30 frames using OBS video player and recorded the flash event occuring on the display monitor using a photoresistor. The photoresistor is activated on exposure to light once surpassed a set threshold (controlled by [cedrus](https://cedrus.com/stimtracker/)). Both the incoming flash event from the monitor via photoresistor and the corresponding LSL marker from OBS is captured using the [Lab Recorder](https://github.com/sccn/labstreaminglayer/wiki/LabRecorder.wiki) (LSL acquisition software). 
 
-#### Frame Display and LSL Trigger Synchronization Analysis 
+#### Analyzing the Temporal Precision of the Flash Event and LSL Trigger
+The main objective of the analysis is to compute the difference between the timing of the flash event captured by the photoresistor and its corresponding LSL marker from  OBS. We want to know the difference between the actual stimulus event and its supposed time marker in order to ensure that neural epochs are exactly timelocked. The video stimulus played from OBS rendered a white flash to the screen every 30 frames, meaning the timing of every 30th frame markers (FM) from OBS studio should correspond to the flash event (FE) captured by the photoresistor. For a 180 second video, we obtain timestamp of 180 FE and 180 FM marking every 30th frame.In figure 1 shows the time of FE and FM. The difference between FE and FM is 19ms(for now) with standard deviation of (15ms).
+
+
+
+
