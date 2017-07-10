@@ -1,6 +1,6 @@
 clear all
 dataDir= '..\DATA\';
-stimToEegCcaDir = '..\..\STIM2EEGLAB\' 
+stimToEegCcaDir = '..\..\STIM2EE-GLAB\' 
 addpath([genpath('../liblsl-Matlab/') genpath(stimToEegCcaDir)])
 Filename= '..\DATA\180s_flash_30hz.xdf';
 [Streams,FileHeader] = load_xdf(Filename)
@@ -46,24 +46,28 @@ plot(timeStamp1,'b');plot([1 timeStampIndex],flashStartTimeIndx,'r.');
 legend('original time stamp','beginning of flash')
 subplot(2,1,2);title('time difference between each flash');plot(diff(flashStartTimeIndx),'.');
 legend(['time difference between the flashes, m=' num2str(m1)])
+saveas(figure(1),'DisplayMonitorFlashMarker.png');
+
 
 %% indexing timestamp for the coinciding frame markers of when the flashe occurs
 dTframeTime1 = .3332; %estim difference in film time 
 frameTimeTimestampIndx=find(diff(tmp2) > dTframeTime1); % indexing frame time 
 dTframeTime2 = .999; %estim difference in film number
 frameNumberTimestampIndx=find((diff(tmp3)) > dTframeTime2); % indexing frame number
+frameMarkerTimeStamp=timeStamp2(frameNumberTimestampIndx);
+% take timestamp of every 30th frame in which the flash should've appeared 
+frameMarkerFlashTimeStamp=frameMarkerTimeStamp(30:30:end); 
 
-figure(2);clf;
-plot(2,1,1);title('media frame time timestamp');stem(frameTimeTimestampIndx,tmp2(frameTimeTimestampIndx),'r');
-plot(2,1,2);title('media frame number timestamp');stem(frameNumberTimestampIndx,tmp3(frameNumberTimestampIndx),'b');
+figure(2);clf;hold on
+subplot(2,1,1);stem(frameTimeTimestampIndx,tmp2(frameTimeTimestampIndx),'r');title('media frame time timestamp');
+subplot(2,1,2);stem(frameNumberTimestampIndx,tmp3(frameNumberTimestampIndx),'b');title('media frame number timestamp');
+saveas(figure(2),'MediaPlayerFrameMarker.png');
 
-frameMarkerTimeStamp=timeStamp2(dTimeStampIndx2)
-
-clf;hold on
-frameMarkerFlashTimeStamp=frameMarkerTimeStamp(30:30:end);
-mean((flashStartTimeIndx1-frameMarkerFlashTimeStamp))
-std((flashStartTimeIndx1-frameMarkerFlashTimeStamp))
-clf;hold on
-plot(flashStartTimeIndx1,'.b')
-plot(frameMarkerFlashTimeStamp,'.r')
-
+figure(3);clf;hold on
+m=mean((flashStartTimeIndx-frameMarkerFlashTimeStamp))
+s=std((flashStartTimeIndx-frameMarkerFlashTimeStamp))
+plot(flashStartTimeIndx,'.b');
+plot(frameMarkerFlashTimeStamp,'.r');
+legend('flash event time', 'corresponding frame marker time')
+title(['time diff between flash event and frame marker, m=' num2str(m) ' ,s=' num2str(s)]);
+saveas(figure(3),'TimeDiffBetweenMediaFrameMarkerVsDisplayFlash.png');
