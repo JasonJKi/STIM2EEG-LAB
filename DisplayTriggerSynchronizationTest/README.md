@@ -19,9 +19,7 @@ These processes run in parallel within it's own threads. The execution of these 
 2. Screen Capturing
 (to be continued)
 
-#### Frame Display and LSL Trigger Synchronization Experiment
-In order to ensure temporal precision of LSL trigger to the displayed stimulus, we need a way of measuring the execution time difference between the physical rendering of each frame onto the display screen and its corresponding LSL marker. To test this, we played a 3 minute mpeg4 video of 30hz which output a white flash every 30 frames using OBS video player and recorded the flash event occuring on the display monitor using a photoresistor. The photoresistor is activated on exposure to light once surpassed a set threshold ontrolled by [cedrus](https://cedrus.com/stimtracker/). Both the incoming flash event from the monitor via photoresistor and the corresponding LSL frame marker was captured using [Lab Recorder](https://github.com/sccn/labstreaminglayer/wiki/LabRecorder.wiki) (LSL data acquisition software). 
+#### Testing the Precision of Displayed Stimulus and its corresponding LSL Trigger
+In order to ensure temporal precision of the displayed stimulus and its corresponding LSL marker, we need a way of measuring the execution time difference between the physical rendering of each frame (to the display screen) and its corresponding LSL marker. To test this, we played a 3 minute mpeg4 video of 30hz which output a white flash every 30 frames using OBS video player and recorded the flash event occuring on the display monitor using a photoresistor. The photoresistor is activated on exposure to light once surpassed a set threshold ontrolled by [cedrus](https://cedrus.com/stimtracker/). Both the incoming flash event from the monitor via photoresistor and the corresponding LSL frame marker from OBS was captured using the [Lab Recorder](https://github.com/sccn/labstreaminglayer/wiki/LabRecorder.wiki) (LSL acquisition software). 
 
-#### Frame Display and LSL Trigger Synchronization Analysis
-
- In order to analyze time synchronization accuracy of obs studio and eeg, we 
+#### Frame Display and LSL Trigger Synchronization Analysis 
