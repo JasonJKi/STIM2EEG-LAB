@@ -1,6 +1,6 @@
 clear all
 dataDir= '..\DATA\';
-stimToEegCcaDir = '..\..\STIM2EEGLAB\' 
+stimToEegCcaDir = '..\..\STIM2EEG-LAB\' 
 addpath([genpath('../liblsl-Matlab/') genpath(stimToEegCcaDir)])
 Filename= '..\DATA\180s_flash_30hz.xdf';
 [Streams,FileHeader] = load_xdf(Filename)
