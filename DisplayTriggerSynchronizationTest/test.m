@@ -1,6 +1,6 @@
 clear all
 dataDir= '..\DATA\';
-stimToEegCcaDir = '..\..\stim2eeg-cca\' 
+stimToEegCcaDir = '..\..\STIM2EEGLAB\' 
 addpath([genpath('../liblsl-Matlab/') genpath(stimToEegCcaDir)])
 Filename= '..\DATA\180s_flash_30hz.xdf';
 [Streams,FileHeader] = load_xdf(Filename)
@@ -25,18 +25,38 @@ for i =1:length(Streams)
     end
 end
 
-dTimeStamp1 = diff(timeStamp1); %plot(dTimeStamp1)
-timeStampIndex = find(dTimeStamp1>.9)+1;plot(dTimeStamp1)
-flashStartTimeIndx1 = [timeStamp1(1) timeStamp1(timeStampIndex)];
-m1 = mean(diff(flashStartTimeIndx1))
-s1 = std(diff(flashStartTimeIndx1))
+%% indexing timestamp for the incoming flashes
+% take a diff between timestamps to find beginning time point of each
+% flash.
+dTimeStamp1 = diff(timeStamp1); 
+% due to irregularities in timestamp only find indexes in which time change
+% of timetamps are greater than 900ms which is an approximate of time
+% difference between each occuring flash.
+% the first timestamp corresponds to the time in which the first flash
+% appeared on the screen.
+timeStampIndex = find(dTimeStamp1>.9)+1;
+flashStartTimeIndx = timeStamp1(timeStampIndex);
+flashStartTimeIndx = [timeStamp1(1) flashStartTimeIndx]
+m1 = mean(diff(flashStartTimeIndx))
+s1 = std(diff(flashStartTimeIndx))
 
-%dTimeStampIndx2 = find((diff(tmp2) > median(diff(tmp2))-1 & diff(tmp2) < median(diff(tmp2))+1) | abs(max(diff(tmp2))))+1;
-dTimeStampIndx2=find(diff(tmp2) > .3)
-dTimeStampIndx3 = find((diff(tmp3)) > .1);
-clf;hold on
-stem(dTimeStampIndx2,tmp2(dTimeStampIndx2),'r');
-stem(dTimeStampIndx2,tmp3(dTimeStampIndx2),'r');
+figure(1);clf;
+subplot(2,1,1);hold on;title('flash occurence timestamp')
+plot(timeStamp1,'b');plot([1 timeStampIndex],flashStartTimeIndx,'r.');
+legend('original time stamp','beginning of flash')
+subplot(2,1,2);title('time difference between each flash');plot(diff(flashStartTimeIndx),'.');
+legend(['time difference between the flashes, m=' num2str(m1)])
+
+%% indexing timestamp for the coinciding frame markers of when the flashe occurs
+dTframeTime1 = .3332; %estim difference in film time 
+frameTimeTimestampIndx=find(diff(tmp2) > dTframeTime1); % indexing frame time 
+dTframeTime2 = .999; %estim difference in film number
+frameNumberTimestampIndx=find((diff(tmp3)) > dTframeTime2); % indexing frame number
+
+figure(2);clf;
+plot(2,1,1);title('media frame time timestamp');stem(frameTimeTimestampIndx,tmp2(frameTimeTimestampIndx),'r');
+plot(2,1,2);title('media frame number timestamp');stem(frameNumberTimestampIndx,tmp3(frameNumberTimestampIndx),'b');
+
 frameMarkerTimeStamp=timeStamp2(dTimeStampIndx2)
 
 clf;hold on
