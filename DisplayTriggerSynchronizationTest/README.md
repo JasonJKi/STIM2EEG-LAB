@@ -28,6 +28,9 @@ In order to ensure temporal precision of the displayed stimulus and its correspo
 #### Analyzing the Temporal Precision of the Flash Event and LSL Trigger
 The main objective of the analysis is to compute the difference between the timing of the flash event captured by the photoresistor and its corresponding LSL marker from  OBS. We want to know the difference between the actual stimulus event and its supposed time marker in order to ensure that neural epochs are exactly timelocked. The video stimulus played from OBS rendered a white flash to the screen every 30 frames, meaning the timing of every 30th frame markers(FM) from OBS studio should correspond to the flash event (FE) captured by the photoresistor. For a 180 second video, we obtain timestamp of 180 FE and 180 FM marking every 30th frame.In figure 1 shows the time of FE and FM. The difference between FE and FM is 19ms(for now) with standard deviation of (15ms).
 
+Figure 1
+[Screenshot](TimeDiffBetweenMediaFrameMarkerVsDisplayFlash.png)
+
 
 
 
