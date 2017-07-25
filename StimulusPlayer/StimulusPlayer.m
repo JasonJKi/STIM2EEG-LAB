@@ -51,7 +51,7 @@ addpath(genpath('../'))
 
 disp('Creating a new streaminfo...');
 
-info = lsl_streaminfo(lib,'StimulusPlayer-Markers','Markers',1,1,'cf_float32','sdfwerr32432');
+info = lsl_streaminfo(lib,'StimulusPlayer-Markers','Markers',2,0,'cf_double64','1234566');
 outlet = lsl_outlet(info);
 input('link stimulus player with lsl host machine. press enter to continue')
 
@@ -181,12 +181,13 @@ try
                 Screen('DrawTexture', win, tex, [], [], [], [], [], [], shader);
                 [VBLTimestamp, StimulusOnsetTime, FlipTimestamp]= Screen('Flip', win);
                 
-                if ~mod(i,fps)
-                    outlet.push_sample(2);
-                else
-                    outlet.push_sample(0);
-                end
- 
+                
+%                 if ~mod(i,fps)
+%                     outlet.push_sample(2);
+%                 else
+%                     outlet.push_sample(0);
+%                 end
+
 %                 DrawFormattedText(win, ['time: ' num2str(timeindex) '/' num2str(movieduration) 's'], 'center', 20, [1 1 1]);
 %                 DrawFormattedText(win, ['flip duration: ' num2str(VBLTimestamp - FlipTimestamp) 's'], 'right', 20, [1 1 1]);
 %                 DrawFormattedText(win, ['on set time: ' num2str(StimulusOnsetTime)], 'right', 30, [1 1 1]);
@@ -210,14 +211,10 @@ try
                 end;
                 
                 % Framecounter:
-%                 outlet.push_sample(VBLTimestamp);
-%                 outlet.push_sample(i);
-                
-             
-                %outlet.push_sample(VBLTimestamp);
-                i=i+1;
+                 outlet.push_sample([VBLTimestamp;i]);
+                 i=i+1;
             end;
-            outlet.push_sample(10);
+            outlet.push_sample([0;0]);
             % Further keyboard checks...
             
             if (keyIsDown==1 && keyCode(right))
@@ -265,9 +262,16 @@ try
         % Close movie object:
         Screen('CloseMovie', movie);
     end;
-    
     % Close screens.
-    sca;
+    
+    while 1
+            [keyIsDown,secs,keyCode]=KbCheck; %#ok<ASGLU>
+            if (keyIsDown==1 && keyCode(esc))
+                % Set the abort-demo flag.
+                sca
+                break;
+            end;
+    end
     
     % Done.
     return;

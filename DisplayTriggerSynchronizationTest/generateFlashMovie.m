@@ -6,9 +6,9 @@ hFigure = figure;
 % First get a cell array with all the frames.
 whiteFlash=repmat(255,[1000,1000,3]);
 blackBackground=repmat(0,[1000,1000,3]);
-fps = 3;
-T=60*3;
-numberOfFrames = T*fps*10;
+fps = 60;
+T=180;
+numberOfFrames = T*fps;
 allTheFrames = cell(numberOfFrames,1);
 vidHeight = 344;
 vidWidth = 446;
