@@ -62,7 +62,7 @@ legend(['m=' num2str(m1) ', std=' num2str(s1)])
 fps=30;t=180;
 flashIndex=30:fps:((fps*180));
 for i=1:length(flashIndex)
-   indxed{i}=find(tmp3==flashIndex(i)); 
+   indxed{i}=find(tmp2==flashIndex(i)); 
    if min(indxed{i})
        indx(i)=min(indxed{i});
    else
